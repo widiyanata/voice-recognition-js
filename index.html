@@ -25,7 +25,7 @@
       }
       speech.recognition.continuous = true;
       speech.recognition.interimResults = true;
-      speech.recognition.lang = 'en-US';
+      speech.recognition.lang = 'id-ID';
       speech.recognition.addEventListener('result', (event) => {
         const audio = event.results[event.results.length - 1];
         speech.text = audio[0].transcript;
