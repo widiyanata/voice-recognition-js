@@ -40,8 +40,8 @@
         // set active id
         if (result.innerText == 'ttv') {
           document.getElementById('ttv').focus()
-          document.getElementById('ttv').value += speech.text
         }
+        document.activeElement.value += speech.text;
       });
 
       toggle.addEventListener('click', () => {
