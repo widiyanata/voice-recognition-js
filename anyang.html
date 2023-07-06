@@ -33,18 +33,19 @@
     // Menambahkan perintah suara
     artyom.addCommands([
     {
-      indexes: ["CPPT S"],
+      indexes: ["S"],
       action: (i, wildcard) => {
         soapSElement.textContent = wildcard;
       }
     },
     {
-      indexes: ["CPPT O"],
+      indexes: ["O"],
       action: (i, wildcard) => {
         soapOElement.textContent = wildcard;
       }
     }
   ]);
+
 
     // Memulai mendengarkan suara saat tombol "Start Listening" diklik
     document.getElementById("startBtn").addEventListener("click", function() {
