@@ -8,6 +8,7 @@
   <h1>Artyom.js Voice-to-Text Example</h1>
   <button id="startBtn">Start Listening</button>
   <button id="stopBtn">Stop Listening</button>
+  <div id="result"></div>
 
   <script>
     // Membuat objek Artyom
@@ -29,16 +30,27 @@
       }
     });
 
-    // Mulai mendengarkan suara saat tombol "Start Listening" diklik
+    // Mendapatkan elemen yang akan menampilkan teks
+    const resultElement = document.getElementById("result");
+
+    // Memulai mendengarkan suara saat tombol "Start Listening" diklik
     document.getElementById("startBtn").addEventListener("click", function() {
       artyom.fatality(); // Menghentikan Artyom (jika sedang berjalan sebelumnya)
       artyom.initialize({
-        lang: "en-US",
+        lang: "id-ID",
         continuous: true,
         listen: true,
         debug: true
       });
       console.log("Listening started...");
+
+      // Mengubah teks hasil pengenalan suara dan menampilkannya pada elemen HTML
+      artyom.redirectRecognizedTextOutput(function(text, isFinal) {
+        if (isFinal) {
+          resultElement.innerHTML = ""; // Menghapus teks sebelumnya saat pengenalan suara selesai
+        }
+        resultElement.innerHTML += "<p>" + text + "</p>"; // Menambahkan teks hasil pengenalan suara ke dalam elemen HTML
+      });
     });
 
     // Menghentikan mendengarkan suara saat tombol "Stop Listening" diklik
