@@ -10,6 +10,9 @@
   <button id="stopBtn">Stop Listening</button>
   <div id="result"></div>
 
+  <div id="SOAP_S"></div>
+  <div id="SOAP_O"></div>
+
   <script>
     // Membuat objek Artyom
     const artyom = new Artyom();
@@ -22,16 +25,26 @@
       debug: true // Mengaktifkan mode debug untuk melihat log
     });
 
-    // Menambahkan perintah suara
-    artyom.addCommands({
-      indexes: ["Hello", "Hi"], // Daftar kata kunci untuk perintah suara
-      action: () => {
-        console.log("Hello, how can I help you?"); // Tanggapan saat perintah suara terdeteksi
-      }
-    });
-
     // Mendapatkan elemen yang akan menampilkan teks
     const resultElement = document.getElementById("result");
+    const soapSElement = document.getElementById("SOAP_S");
+    const soapOElement = document.getElementById("SOAP_O");
+
+    // Menambahkan perintah suara
+    artyom.addCommands([
+      {
+        indexes: ["CPPT S"],
+        action: () => {
+          soapSElement.textContent = "CPPT S command recognized";
+        }
+      },
+      {
+        indexes: ["CPPT O"],
+        action: () => {
+          soapOElement.textContent = "CPPT O command recognized";
+        }
+      }
+    ]);
 
     // Memulai mendengarkan suara saat tombol "Start Listening" diklik
     document.getElementById("startBtn").addEventListener("click", function() {
