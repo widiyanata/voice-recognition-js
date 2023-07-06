@@ -36,7 +36,7 @@
     indexes: ["subjek"],
     //smart: true,
     action: (i, wildcard) => {
-      const voiceResult = wildcard.trim();
+      const voiceResult = wildcard;
       console.log('command s')
       if (voiceResult !== "") {
         soapSElement.textContent = voiceResult;
@@ -47,7 +47,7 @@
     indexes: ["objek"],
     //smart: true,
     action: (i, wildcard) => {
-      const voiceResult = wildcard.trim();
+      const voiceResult = wildcard;
       console.log('command o')
       if (voiceResult !== "") {
         soapOElement.textContent = voiceResult;
