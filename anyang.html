@@ -32,19 +32,28 @@
 
     // Menambahkan perintah suara
     artyom.addCommands([
-    {
-      indexes: ["S"],
-      action: (i, wildcard) => {
-        soapSElement.textContent = wildcard;
-      }
-    },
-    {
-      indexes: ["O"],
-      action: (i, wildcard) => {
-        soapOElement.textContent = wildcard;
+  {
+    indexes: ["* S"],
+    smart: true,
+    action: (i, wildcard) => {
+      const voiceResult = wildcard.trim();
+      if (voiceResult !== "") {
+        soapSElement.textContent = voiceResult;
       }
     }
-  ]);
+  },
+  {
+    indexes: ["* O"],
+    smart: true,
+    action: (i, wildcard) => {
+      const voiceResult = wildcard.trim();
+      if (voiceResult !== "") {
+        soapOElement.textContent = voiceResult;
+      }
+    }
+  }
+]);
+
 
 
     // Memulai mendengarkan suara saat tombol "Start Listening" diklik
