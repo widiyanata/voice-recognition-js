@@ -32,19 +32,19 @@
 
     // Menambahkan perintah suara
     artyom.addCommands([
-      {
-        indexes: ["S"],
-        action: () => {
-          soapSElement.textContent = "CPPT S command recognized";
-        }
-      },
-      {
-        indexes: ["O"],
-        action: () => {
-          soapOElement.textContent = "CPPT O command recognized";
-        }
+    {
+      indexes: ["CPPT S"],
+      action: (i, wildcard) => {
+        soapSElement.textContent = wildcard;
       }
-    ]);
+    },
+    {
+      indexes: ["CPPT O"],
+      action: (i, wildcard) => {
+        soapOElement.textContent = wildcard;
+      }
+    }
+  ]);
 
     // Memulai mendengarkan suara saat tombol "Start Listening" diklik
     document.getElementById("startBtn").addEventListener("click", function() {
