@@ -37,6 +37,7 @@
     smart: true,
     action: (i, wildcard) => {
       const voiceResult = wildcard.trim();
+      console.log('command s')
       if (voiceResult !== "") {
         soapSElement.textContent = voiceResult;
       }
@@ -47,6 +48,7 @@
     smart: true,
     action: (i, wildcard) => {
       const voiceResult = wildcard.trim();
+      console.log('command o')
       if (voiceResult !== "") {
         soapOElement.textContent = voiceResult;
       }
