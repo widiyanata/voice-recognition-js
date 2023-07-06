@@ -33,7 +33,7 @@
     // Menambahkan perintah suara
     artyom.addCommands([
   {
-    indexes: ["* S"],
+    indexes: ["* subjek"],
     smart: true,
     action: (i, wildcard) => {
       const voiceResult = wildcard.trim();
@@ -43,7 +43,7 @@
     }
   },
   {
-    indexes: ["* O"],
+    indexes: ["* Objek"],
     smart: true,
     action: (i, wildcard) => {
       const voiceResult = wildcard.trim();
