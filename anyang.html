@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Pengenalan Suara ke Teks Bahasa Indonesia</title>
+  <style>
+    #start-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/annyang/2.6.1/annyang.min.js"></script>
+
+</head>
+<body>
+  <h1>Pengenalan Suara ke Teks Bahasa Indonesia</h1>
+  <button id="start-btn">Mulai</button>
+  <p id="output"></p>
+
+  <script>
+    if (annyang) {
+  // Define the commands and their corresponding functions
+  var commands = {
+    'teks *message': function(message) {
+      document.getElementById('output').textContent = message;
+    }
+  };
+  
+  // Add the commands to annyang
+  annyang.addCommands(commands);
+  
+  // Start listening for speech input
+  document.getElementById('start-btn').addEventListener('click', function() {
+    annyang.start();
+  });
+} else {
+  alert('annyang.js is not supported in this browser.');
+}
+
+  </script>
+</body>
+</html>
